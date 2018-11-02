@@ -6,7 +6,9 @@
     "serve": "^6.5.8"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --dir public/module",
+    "build-with-input-flag-okay": "rollup -c --config rollup-no-input.config.js --input src/main-a.js --input src/main-b.js --dir public/module",
+    "build-with-input-flag-bad": "rollup -c --config rollup-no-input.config.js --input src/main-a.js --input src/subdir/main-a.js --dir public/module",
     "watch": "rollup -c -w",
     "dev": "npm-run-all --parallel start watch",
     "start": "serve public"
